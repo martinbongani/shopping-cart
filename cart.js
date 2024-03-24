@@ -18,8 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
         { id: 12, name: "Hisense 7kg Automatic Front Loading Washing Machine - Titanium", price: 1097900 }
     ];
 
+    
     // Render products
     products.forEach(product => {
+        // console.log(this);
         const productElement = document.createElement("div");
         productElement.classList.add("product");
         productElement.innerHTML = `
@@ -27,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <p>Price: UGX ${product.price.toLocaleString()}</p>
             <button onclick="addToCart(${product.id})">Add to Cart</button>
         `;
+        // console.log(this.product.name);
         productsContainer.appendChild(productElement);
     });
 
@@ -39,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             cart.push(product);
             renderCart();
         }
+        console.log(cart)
     };
 
     // Function to render cart
@@ -49,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
             total += item.price;
             const cartItem = document.createElement("div");
             cartItem.classList.add("cart-item");
-            cartItem.textContent = item.name;
+            
+            cartItem.innerHTML = `<p>${item.name}</p><button onClick = "removeItem()">Remove item</button>`
             cartContainer.appendChild(cartItem);
         });
         const totalElement = document.createElement("div");
@@ -57,4 +62,15 @@ document.addEventListener("DOMContentLoaded", function() {
         totalElement.textContent = `Total: UGX ${total.toLocaleString()}`;
         cartContainer.appendChild(totalElement);
     }
+    function removeItem(productId) {
+        const index = cart.findIndex(item => item.id===productId)
+        // const product = cart.find(p => p.id === productId);
+        // if (product) {
+        //     cart.splice(product);
+        //     renderCart();
+        // }
+
+    }
+    removeItem(1)
 });
+
