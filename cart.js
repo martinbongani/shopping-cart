@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Render products
     products.forEach(product => {
-        // console.log(this);
         const productElement = document.createElement("div");
         productElement.classList.add("product");
         productElement.innerHTML = `
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
             <p>Price: UGX ${product.price.toLocaleString()}</p>
             <button onclick="addToCart(${product.id})">Add to Cart</button>
         `;
-        // console.log(this.product.name);
         productsContainer.appendChild(productElement);
     });
 
@@ -46,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     // Function to render cart
+    /*
     function renderCart() {
         cartContainer.innerHTML = "";
         let total = 0;
@@ -62,15 +61,53 @@ document.addEventListener("DOMContentLoaded", function() {
         totalElement.textContent = `Total: UGX ${total.toLocaleString()}`;
         cartContainer.appendChild(totalElement);
     }
-    function removeItem(productId) {
-        const index = cart.findIndex(item => item.id===productId)
-        // const product = cart.find(p => p.id === productId);
-        // if (product) {
-        //     cart.splice(product);
-        //     renderCart();
-        // }
+    */
+    // function removeItem(productId) {
+    //     const index = cart.findIndex(item => item.id===productId)
+    //     // const product = cart.find(p => p.id === productId);
+    //     // if (product) {
+    //     //     cart.splice(product);
+    //     //     renderCart();
+    //     // }
 
-    }
-    removeItem(1)
+    // }
+    // removeItem(1)
+
+    // Function to render cart
+function renderCart() {
+    cartContainer.innerHTML = "";
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price;
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        cartItem.textContent = item.name;
+
+        // Create remove button
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.classList.add("remove-button");
+
+        // Add event listener to remove button
+        removeButton.addEventListener("click", function() {
+            removeFromCart(item.id);
+        });
+
+        // Append remove button to cart item
+        cartItem.appendChild(removeButton);
+
+        cartContainer.appendChild(cartItem);
+    });
+    const totalElement = document.createElement("div");
+    totalElement.classList.add("cart-total");
+    totalElement.textContent = `Total: UGX ${total.toLocaleString()}`;
+    cartContainer.appendChild(totalElement);
+}
+
+// Function to remove item from cart
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    renderCart();
+}
 });
 
