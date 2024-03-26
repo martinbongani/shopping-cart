@@ -4,18 +4,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Sample products
     const products = [
-        { id: 1, name: "Philips 1.9litres ProBlend System Blender 450W 3000 Series - Black", price: 189000 },
-        { id: 2, name: "Apple iPhone 15 Pro 6.1\" 8GB RAM 256GB ROM 48MP 3274mAh - Blue Titanium", price: 5150000 },
-        { id: 3, name: "ADH 428L Double Door Big Top Mount Refrigerator - Silver", price: 1550000 },
-        { id: 4, name: "Samsung 50 Inch Crystal UHD 4k Smart", price: 2305500 },
-        { id: 5, name: "20 Litres Microwave Oven 20MOMS11 - Mirror Silver", price: 229000 },
-        { id: 6, name: "Saachi Non Stick Dry Flat Iron - Silver Gray", price: 36100 },
-        { id: 7, name: "Stainless Steel Electric Kettle - Silver & Black", price: 46200 },
-        { id: 8, name: "Deep Fryer - Silver & Black", price: 144300 },
-        { id: 9, name: "Hot Plate Electric Cooker", price: 106100 },
-        { id: 10, name: "Soni 5.1Ch Home Cinema Sound Bar 400W HTS20R", price: 1314711 },
-        { id: 11, name: "HiFi Earphone Bass Headsets", price: 48000 },
-        { id: 12, name: "Hisense 7kg Automatic Front Loading Washing Machine - Titanium", price: 1097900 }
+        { id: 1, name: "Baby wipes", price: 189000 },
+        { id: 2, name: "Cribs and Chairs-furniture", price: 5150000 },
+        { id: 3, name: "Musical instruments", price: 1550000 },
+        { id: 4, name: "Toys", price: 2305500 },
+        { id: 5, name: "Baby diapers", price: 229000 },
+        { id: 6, name: "Snacks", price: 36100 },
+        { id: 7, name: "Books and charts", price: 46200 },
+        { id: 8, name: "First aid kit", price: 144300 },
+        { id: 9, name: "Bottles and feeding utensils", price: 106100 },
+        { id: 10, name: "Kitchen appliances", price: 1314711 },
+        { id: 11, name: "Office supplies", price: 48000 },
+        { id: 12, name: "Blankets and bedding", price: 1097900 }
     ];
 
     
