@@ -104,12 +104,38 @@ function renderCart() {
     totalElement.classList.add("cart-total");
     totalElement.textContent = `Total: UGX ${total.toLocaleString()}`;
     cartContainer.appendChild(totalElement);
-}
 
-// Function to remove item from cart
-function removeFromCart(productId) {
+    // Create checkout button
+    const checkoutButton = document.createElement("button");
+    checkoutButton.textContent = `Checkout (UGX ${total.toLocaleString()})`;
+    checkoutButton.classList.add("checkout-button");
+
+    // Add event listener to checkout button
+    checkoutButton.addEventListener("click", function() {
+        checkout(total);
+    });
+
+    // Append checkout button to cart container
+    cartContainer.appendChild(checkoutButton);
+
+    }
+
+    // Function to remove item from cart
+    function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
     renderCart();
 }
 });
+
+
+// Function to checkout
+function checkout(total) {
+    
+    cart = []; // Clear the cart
+    renderCart(); // Render an empty cart
+    
+}
+
+
+
 
