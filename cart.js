@@ -111,8 +111,8 @@ function renderCart() {
     checkoutButton.classList.add("checkout-button");
 
     // Add event listener to checkout button
-    checkoutButton.addEventListener("submit", function() {
-    removeCart();
+    checkoutButton.addEventListener("click", function() {
+        checkout(total);
     });
 
     // Append checkout button to cart container
@@ -129,9 +129,11 @@ function renderCart() {
 
 
 // Function to checkout
-function removeCart(productId, totalElement) {
-    cart = cart.reset(item => item.id !== productId);
-    cart.reset();
+function checkout(total) {
+    
+    cart = []; // Clear the cart
+    renderCart(); // Render an empty cart
+    
 }
 
 
