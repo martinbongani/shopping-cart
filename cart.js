@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
     products.forEach(product => {
         const productElement = document.createElement("div");
         productElement.classList.add("product");
-        productElement.innerHTML = `
+        //html and css included
+        productElement.innerHTML = ` 
             <h3>${product.name}</h3>
             <p>Price: UGX ${product.price.toLocaleString()}</p>
             <button onclick="addToCart(${product.id})">Add to Cart</button>
@@ -78,10 +79,11 @@ function renderCart() {
     cartContainer.innerHTML = "";
     let total = 0;
     cart.forEach(item => {
+        //total = total + item.price
         total += item.price;
         const cartItem = document.createElement("div");
         cartItem.classList.add("cart-item");
-        cartItem.textContent = item.name;
+        cartItem.textContent = item.name; //doesnt include markup
 
         // Create remove button
         const removeButton = document.createElement("button");
@@ -90,7 +92,7 @@ function renderCart() {
 
         // Add event listener to remove button
         removeButton.addEventListener("click", function() {
-            removeFromCart(item.id);
+            removeFromCart(item.id); // Calling line 108
         });
 
         // Append remove button to cart item
